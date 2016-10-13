@@ -3,10 +3,11 @@ using System.Collections;
 
 public class movement : MonoBehaviour {
 	public float moveSpeed;
+	Rigidbody rbody;
 
 	// Use this for initialization
 	void Start () {
-	
+		rbody = GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
@@ -14,7 +15,7 @@ public class movement : MonoBehaviour {
 		float inputX = Input.GetAxis ("Horizontal");
 		float inputY = Input.GetAxis ("Vertical");
 
-		transform.Translate (inputX*moveSpeed*Time.deltaTime, 0f, 0f);
-		transform.Translate (0f, 0f, inputY * moveSpeed * Time.deltaTime);
+		rbody.AddForce(transform.forward * inputY * moveSpeed +
+			transform.right * inputX * moveSpeed);
 	}
 }
