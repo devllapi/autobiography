@@ -29,6 +29,7 @@ public class donutGrab : MonoBehaviour {
 
 		if (donutCount == 12) {
 			gameText.text = "Took you long enough...";
+
 		}
 		}
 			
@@ -38,6 +39,9 @@ public class donutGrab : MonoBehaviour {
 				currentDemand = Random.Range (0, donutNonsense.Length);
 				gameText.text = donutNonsense [currentDemand];
 				currentDonut = 3;
+			}
+			if(col2.gameObject.tag=="counter" && donutCount==12){
+				Application.LoadLevel ("endgame");
 			}
 		}
 	}
@@ -63,11 +67,12 @@ public class donutGrab : MonoBehaviour {
 			if((currentDemand==currentDonut) && Input.GetKeyDown(KeyCode.Space)){
 				donutCount+=1;
 				//currentDemand = Random.Range (0, donutNonsense.Length);
-
+				gameText.text="Thanks, I guess.";
 			}
 			if((currentDemand!=currentDonut)&& (Input.GetKeyDown(KeyCode.Space))){
 				donutCount-=1f;
-	}
+				gameText.text = "That's not what I asked for. Are you new here?";
+	}	
 			}
 }
 }

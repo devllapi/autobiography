@@ -16,7 +16,7 @@ public class rushHour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		employee1.transform.position = new Vector3 (employee1start + Mathf.PingPong (Time.time * moveSpeed, end), transform.position.y, transform.position.z);
-		employee2.transform.position = new Vector3 (employee2start+Mathf.PingPong (Time.time*moveSpeed, end)*-1f, transform.position.y, -6f);
+		employee2.transform.position = new Vector3 (employee2start+Mathf.PingPong (Time.time*moveSpeed, end)*-1f, transform.position.y, -5f);
 	}
 
 
