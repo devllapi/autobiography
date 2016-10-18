@@ -10,18 +10,19 @@ public class donutGrab : MonoBehaviour {
 	public Text gameText;//uses the text found inside the canvas
 	public Text donutText;
 	public Text currentDonutText;
-
+	public Text reaction;
 
 	public int currentDemand;
 	public int currentDonut;
 
-	bool atCounter=false; 
+	public bool atCounter=false; 
 
 	// Use this for initialization
 	void Start () {
 		currentDemand = Random.Range (0, donutNonsense.Length);
 		gameText.text = donutNonsense [currentDemand];
 		currentDonut = 3;
+		atCounter = false;
 
 	}
 	
@@ -30,28 +31,33 @@ public class donutGrab : MonoBehaviour {
 		donutText.text = donutCount.ToString();
 		currentDonutText.text =currentDonutString[currentDonut];
 
+		if (atCounter == false) {
+			reaction.text = "";
+		}
 		if (donutCount == 12) {
 			gameText.text = "Took you long enough...";
 
 		}
-		if(atCounter=true&&Input.GetKeyDown(KeyCode.Space)){
+		if(atCounter==true&&Input.GetKeyDown(KeyCode.Space)){
 			if(currentDemand==currentDonut){
 				donutCount+=1;
 				currentDemand = Random.Range (0, donutNonsense.Length);
-				gameText.text="Thanks, I guess.";
+				reaction.text="Thanks, I guess.";
 			}
 			else if(currentDemand!=currentDonut){
 				donutCount-=1f;
-				gameText.text = "That's not what I asked for. Are you new here?";
+				reaction.text = "That's not what I asked for. Are you new here?";
 		}
 					}
 					}
+
 	void OnCollisionExit(Collision col2){
-		if (col2.gameObject.tag == "counter" && currentDemand==currentDonut) {
+		if (col2.gameObject.tag == "counter") {
 			if (donutCount > 0) {
 				currentDemand = Random.Range (0, donutNonsense.Length);
 				gameText.text = donutNonsense [currentDemand];
 				currentDonut = 3;
+				atCounter = false;
 			}
 			if(col2.gameObject.tag=="counter" && donutCount==12){
 				Application.LoadLevel ("endgame");
@@ -78,6 +84,7 @@ public class donutGrab : MonoBehaviour {
 
 		if (col.gameObject.tag=="counter"){ 
 			atCounter = true;
+			Debug.Log ("counter");
 	}	
 			}
 }
