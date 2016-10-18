@@ -16,6 +16,7 @@ public class donutGrab : MonoBehaviour {
 	public int currentDonut;
 
 	public bool atCounter=false; 
+	bool newInstruction=false;
 
 	// Use this for initialization
 	void Start () {
@@ -31,8 +32,19 @@ public class donutGrab : MonoBehaviour {
 		donutText.text = donutCount.ToString();
 		currentDonutText.text =currentDonutString[currentDonut];
 
-		if (atCounter == false) {
+	
+
+		if (atCounter == false&&newInstruction==true) {
 			reaction.text = "";
+			if (donutCount > 0) {
+				//currentDemand = Random.Range (0, donutNonsense.Length);
+				gameText.text = donutNonsense [currentDemand];
+				currentDonut = 3;
+				newInstruction=false;
+			}
+			if(donutCount==12){
+				Application.LoadLevel ("endgame");
+			}
 		}
 		if (donutCount == 12) {
 			gameText.text = "Took you long enough...";
@@ -46,24 +58,22 @@ public class donutGrab : MonoBehaviour {
 			}
 			else if(currentDemand!=currentDonut){
 				donutCount-=1f;
-				reaction.text = "That's not what I asked for. Are you new here?";
+				reaction.text = "Thats not what I asked for. Are you new here?";
+			
 		}
+			if (donutCount < 0) {
+				donutCount = 0;
+			}
 					}
 					}
 
 	void OnCollisionExit(Collision col2){
 		if (col2.gameObject.tag == "counter") {
-			if (donutCount > 0) {
-				currentDemand = Random.Range (0, donutNonsense.Length);
-				gameText.text = donutNonsense [currentDemand];
-				currentDonut = 3;
-				atCounter = false;
-			}
-			if(col2.gameObject.tag=="counter" && donutCount==12){
-				Application.LoadLevel ("endgame");
-			}
+			atCounter = false;
+			newInstruction = true;
 		}
 	}
+
 		
 	void OnCollisionStay(Collision col){
 		if(col.gameObject.tag=="brown" && Input.GetKeyDown(KeyCode.Space)){
