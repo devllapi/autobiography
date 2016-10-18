@@ -13,5 +13,8 @@ public class startscript : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space)){
 			Application.LoadLevel("donutzone");
 		}
+		if(Input.GetKeyDown(KeyCode.R)){
+			Application.LoadLevel("startgame");
+		}
 	}
 }

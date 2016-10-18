@@ -42,11 +42,11 @@ public class donutGrab : MonoBehaviour {
 				currentDonut = 3;
 				newInstruction=false;
 			}
-			if(donutCount==12){
+			if(donutCount==6){
 				Application.LoadLevel ("endgame");
 			}
 		}
-		if (donutCount == 12) {
+		if (donutCount == 6) {
 			gameText.text = "Took you long enough...";
 
 		}
