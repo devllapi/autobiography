@@ -15,7 +15,7 @@ public class movement : MonoBehaviour {
 		float inputX = Input.GetAxis ("Horizontal");
 		float inputY = Input.GetAxis ("Vertical");
 
-		rbody.AddForce(transform.Translate(0,0,inputY * moveSpeed*Time.deltaTime)); //+
-			//transform.right * inputX * moveSpeed);
+		rbody.AddForce(new Vector3(0f,0f,moveSpeed * inputY) +
+			new Vector3(inputX * moveSpeed,0f,0f ));
 	}
 }

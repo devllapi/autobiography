@@ -70,7 +70,7 @@ public class donutGrab : MonoBehaviour {
 	void OnCollisionExit(Collision col2){
 		if (col2.gameObject.tag == "counter") {
 			atCounter = false;
-			newInstruction = true;
+			//newInstruction = true;
 		}
 	}
 
@@ -95,6 +95,7 @@ public class donutGrab : MonoBehaviour {
 		if (col.gameObject.tag=="counter"){ 
 			atCounter = true;
 			Debug.Log ("counter");
+			newInstruction = true;
 	}	
 			}
 }
