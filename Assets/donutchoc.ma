@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
 //Name: donutchoc.ma
-//Last modified: Sat, Oct 22, 2016 02:15:12 PM
+//Last modified: Sat, Oct 22, 2016 03:58:30 PM
 //Codeset: 1252
 requires maya "2016";
 currentUnit -l centimeter -a degree -t film;
@@ -13,13 +13,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "40A81190-4006-17F1-EA14-4C9226470F8B";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 7.6684042738477025 14.975161083426512 14.208676524821687 ;
-	setAttr ".r" -type "double3" -36.938352729450756 394.5999999997685 1.9319731231882566e-015 ;
+	setAttr ".t" -type "double3" 10.866272227166213 20.245976239664092 -1.4256261801944605 ;
+	setAttr ".r" -type "double3" -54.338352729952426 86.999999999890122 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "FB8DBAD9-4649-3C6C-8A6E-769EA6BB6156";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 24.918923725949238;
+	setAttr ".coi" 24.918923725948659;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";

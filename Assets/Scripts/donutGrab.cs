@@ -32,7 +32,11 @@ public class donutGrab : MonoBehaviour {
 		donutText.text = donutCount.ToString();
 		currentDonutText.text =currentDonutString[currentDonut];
 
-	
+		if (currentDonut == 3) {
+			reaction.text = "Press [SPACE] to grab a donut at the case";
+		} else if(currentDonut!=3 && atCounter==false) {
+			reaction.text = "Press [SPACE] by the counter to give the donut";
+		}
 
 		if (atCounter == false&&newInstruction==true) {
 			reaction.text = "";
